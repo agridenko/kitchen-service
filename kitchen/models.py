@@ -27,7 +27,9 @@ class Cook(AbstractUser):
         ordering = ['years_of_experience']
 
     def __str__(self):
-        return f"{self.username} ({self.first_name} {self.last_name}) - {self.years_of_experience}"
+        return (f"{self.username} "
+                f"({self.first_name} {self.last_name}) - "
+                f"{self.years_of_experience}")
 
     def get_absolute_url(self):
         return reverse('cook_detail', args=[str(self.pk)])
