@@ -1,7 +1,10 @@
-asgiref==3.12.1
-Django==6.1.1
-flake8==7.3.0
-mccabe==0.7.0
-pycodestyle==2.14.0
-pyflakes==3.4.0
-sqlparse==0.6.0
+asgiref
+Django
+django-crispy-forms
+django-debug-toolbar
+flake8
+mccabe
+pycodestyle
+pyflakes
+sqlparse
+crispy-bootstrap4
