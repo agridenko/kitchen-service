@@ -2,7 +2,9 @@
 {% block title %} <title>DishType</title> {% endblock %}
 
 {% block content %}
-<h1>DishType List</h1>
+<h1>DishType List
+  <a class="btn btn-primary link-to-page" style="float:right;" href="{% url 'kitchen:dish_type_create' %}">+ add</a>
+</h1>
 
 <ul>
 {% for dishtype in dish_type_list %}
