@@ -15,8 +15,7 @@
       <th scope="col">Description</th>
       <th scope="col">Price</th>
       <th scope="col">Dish Type</th>
-      <th scope="col">Update</th>
-      <th scope="col">Delete</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -29,8 +28,10 @@
       <td>{{ dish.description }}</td>
       <td>{{ dish.price }}</td>
       <td>{{ dish.dish_type }}</td>
-      <td><a class="btn btn-primary" href="{% url 'kitchen:dish_update' dish.id %}">Update</a></td>
-      <td><a class="btn btn-danger" href="{% url 'kitchen:dish_delete' dish.id %}">Delete</a></td>
+      <td>
+        <a class="btn btn-primary" href="{% url 'kitchen:dish_update' dish.id %}">Update</a>
+        <a class="btn btn-danger" href="{% url 'kitchen:dish_delete' dish.id %}">Delete</a>
+      </td>
     </tr>
   {% endfor %}
   </tbody>

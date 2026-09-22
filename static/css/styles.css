@@ -1,0 +1,23 @@
+.h1_index_page{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapp_block_index_page{
+    display: flex;
+    justify-content: space-around;
+}
+.wrapp_block_index_page .wrapp__inner{
+    width: 33.33%;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 0 15px;
+}
+.wrapp_block_index_page .wrapp__inner .wrapp__inner-box .wrapp__inner-box-text{
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}

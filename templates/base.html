@@ -24,7 +24,7 @@
     </div>
     {% endif %}
 
-    <div class="col-sm-10">
+    <div class="{% if user.is_authenticated %}col-sm-10{% else %}col-sm-12{% endif %}">
       {% block content %}
       {% endblock %}
 

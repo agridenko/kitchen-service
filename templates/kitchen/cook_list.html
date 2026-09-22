@@ -14,8 +14,7 @@
       <th scope="col">First Name</th>
       <th scope="col">Last Name</th>
       <th scope="col">Years of experience</th>
-      <th scope="col">Update</th>
-      <th scope="col">Delete</th>
+      <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -28,8 +27,10 @@
         <td>{{ cook.first_name }}</td>
         <td>{{ cook.last_name }}</td>
         <td>{{ cook.years_of_experience }}</td>
-        <td><a class="btn btn-primary" href="{% url 'kitchen:cook_update' cook.id %}">Update</a></td>
-        <td><a class="btn btn-danger" href="{% url 'kitchen:cook_delete' cook.id %}">Delete</a></td>
+        <td>
+          <a class="btn btn-primary" href="{% url 'kitchen:cook_update' cook.id %}">Update</a>
+          <a class="btn btn-danger" href="{% url 'kitchen:cook_delete' cook.id %}">Delete</a>
+        </td>
       </tr>
     {% endfor %}
   </tbody>
