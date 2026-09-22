@@ -9,6 +9,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th scope="col">ID</th>
       <th scope="col">Name</th>
       <th scope="col">Update</th>
       <th scope="col">Delete</th>
@@ -17,6 +18,7 @@
   <tbody>
     {% for dishtype in dish_type_list %}
       <tr>
+        <td>{{ dishtype.id }}</td>
         <td>{{ dishtype.name }}</td>
         <td>
           <a href="{% url 'kitchen:dish_type_update' pk=dishtype.id %}">

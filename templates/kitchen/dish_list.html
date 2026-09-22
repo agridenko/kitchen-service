@@ -6,9 +6,34 @@
   <a class="btn btn-primary link-to-page" style="float:right;" href="{% url 'kitchen:dish_create' %}">+ add</a>
 </h1>
 
-<ul>
-{% for item in dish_list %}
-  <li>{{ item.name }}</li>
-{% endfor %}
-</ul>
+
+<table class="table table-striped">
+<thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Dish Type</th>
+      <th scope="col">Update</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for dish in dish_list %}
+    <tr>
+      <td>{{ dish.id }}</td>
+      <td>
+        <a href="{% url 'kitchen:dish_detail' dish.id %}">{{ dish.name }}</a>
+      </td>
+      <td>{{ dish.description }}</td>
+      <td>{{ dish.price }}</td>
+      <td>{{ dish.dish_type }}</td>
+      <td><a class="btn btn-primary" href="{% url 'kitchen:dish_update' dish.id %}">Update</a></td>
+      <td><a class="btn btn-danger" href="{% url 'kitchen:dish_delete' dish.id %}">Delete</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
 {% endblock %}
