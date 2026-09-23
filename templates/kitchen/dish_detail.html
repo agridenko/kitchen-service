@@ -6,4 +6,14 @@
 <h4>{{ dish.description }}</h4>
 <p>Price: {{ dish.price }}</p>
 <p>Dish Type: {{ dish.dish_type }}</p>
+
+<br>
+<hr>
+<h4>Cooks:</h4>
+<ul>
+  {% for cook in dish.cooks.all %}
+    <li>{{ cook.first_name }} {{ cook.last_name }} ({{ cook.username }})</li>
+  {% endfor %}
+</ul>
+
 {% endblock %}

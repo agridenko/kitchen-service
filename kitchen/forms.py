@@ -26,3 +26,36 @@ class CookCreationForm(UserCreationForm):
             "first_name",
             "last_name",
         )
+
+
+class DishTypeSearchForm(forms.Form):
+    name = forms.CharField(
+        required=False,
+        label="",
+        max_length=255,
+        widget=forms.TextInput(
+            attrs={"placeholder": "Search by name"}
+        ),
+    )
+
+
+class DishSearchForm(forms.Form):
+    name = forms.CharField(
+        required=False,
+        label="",
+        max_length=255,
+        widget=forms.TextInput(
+            attrs={"placeholder": "Search by name"}
+        ),
+    )
+
+
+class CookSearchForm(forms.Form):
+    username = forms.CharField(
+        required=False,
+        label="",
+        max_length=255,
+        widget=forms.TextInput(
+            attrs={"placeholder": "Search by username"}
+        ),
+    )

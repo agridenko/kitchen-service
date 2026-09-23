@@ -1,10 +1,17 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 {% block title %} <title>DishType</title> {% endblock %}
 
 {% block content %}
 <h1>DishType List
   <a class="btn btn-primary link-to-page" style="float:right;" href="{% url 'kitchen:dish_type_create' %}">+ add</a>
 </h1>
+
+<form method="get" action="" class="form-inline">
+  {{ search_form|crispy }}
+  <input class="btn btn-secondary" type="submit" value="🔍">
+</form>
+<br>
 
 <table class="table table-striped">
   <thead>
