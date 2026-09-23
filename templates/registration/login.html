@@ -4,8 +4,8 @@
 {% block content %}
 
 
-  <div class="row align-items-center" style="height: 100vh;">
-    <div class="col-sm">
+  <div class="row align-items-center wrapp_page" style="height: 100vh;">
+    <div class="col-sm login-form">
       <h1>Login</h1>
 
       {% if next %}
@@ -19,9 +19,6 @@
         <input type="submit" value="Login" class="btn btn-primary" />
         <input type="hidden" name="next" value="{{ next }}" />
       </form>
-    </div>
-    <div class="col-sm">
-      Welcome to Kitchen Service
     </div>
   </div>
 
