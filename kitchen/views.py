@@ -5,7 +5,10 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from kitchen.models import Cook, DishType, Dish
-from kitchen.forms import DishTypeSearchForm, DishSearchForm, CookSearchForm, DishForm
+from kitchen.forms import (DishTypeSearchForm,
+                           DishSearchForm,
+                           CookSearchForm,
+                           DishForm)
 
 
 @login_required
