@@ -13,6 +13,12 @@ class DishTypeForm(forms.ModelForm):
 
 
 class DishForm(forms.ModelForm):
+    cooks = forms.ModelMultipleChoiceField(
+        queryset=Cook.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+    )
+
     class Meta:
         model = Dish
         fields = "__all__"
