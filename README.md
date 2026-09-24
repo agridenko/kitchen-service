@@ -234,18 +234,6 @@ DJANGO_DEBUG=True
 
 ---
 
-## 📸 Screenshots
-
-You can add screenshots here later.
-
-Example:
-
-```markdown
-![Home page](static/images/screenshot-home.png)
-```
-
----
-
 ## 👤 Author
 
 Created by [agridenko](https://github.com/agridenko)
