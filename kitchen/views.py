@@ -8,7 +8,7 @@ from kitchen.models import Cook, DishType, Dish
 from kitchen.forms import (DishTypeSearchForm,
                            DishSearchForm,
                            CookSearchForm,
-                           DishForm)
+                           DishForm, CookCreationForm)
 
 
 @login_required
@@ -154,13 +154,18 @@ class CookDetailView(LoginRequiredMixin, generic.DetailView):
 
 class CookCreateView(LoginRequiredMixin, generic.CreateView):
     model = Cook
-    fields = "__all__"
+    form_class = CookCreationForm
     success_url = reverse_lazy("kitchen:cook_list")
 
 
 class CookUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Cook
-    fields = "__all__"
+    fields = (
+        "username",
+        "first_name",
+        "last_name",
+        "years_of_experience",
+    )
     success_url = reverse_lazy("kitchen:cook_list")
 
 

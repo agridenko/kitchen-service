@@ -7,36 +7,36 @@ from kitchen.models import DishType, Dish, Cook
 class SearchTests(TestCase):
     def setUp(self):
         self.user = Cook.objects.create_user(
-            username='testuser',
-            password='testpassword',
-            first_name='Test',
-            last_name='User',
+            username="testuser",
+            password="testpassword",
+            first_name="Test",
+            last_name="User",
             years_of_experience=5
         )
         self.client.force_login(self.user)
 
     def test_search_dishtype_by_name(self):
-        test_dish_type = DishType.objects.create(name='Test Dish Type')
-        test_dish_type_2 = DishType.objects.create(name='Test_Dish_Type_2')
+        test_dish_type = DishType.objects.create(name="Test Dish Type")
+        test_dish_type_2 = DishType.objects.create(name="Test_Dish_Type_2")
         response = self.client.get(
-            reverse('kitchen:dish_type_list'),
-            {'name': 'Test Dish Type'}
+            reverse("kitchen:dish_type_list"),
+            {"name": "Test Dish Type"}
         )
         self.assertEqual(response.status_code, 200)
-        self.assertIn(test_dish_type, response.context['dish_type_list'])
-        self.assertNotIn(test_dish_type_2, response.context['dish_type_list'])
+        self.assertIn(test_dish_type, response.context["dish_type_list"])
+        self.assertNotIn(test_dish_type_2, response.context["dish_type_list"])
 
     def test_search_dishtype_is_case_insensitive(self):
-        test_dish_type = DishType.objects.create(name='Test Dish Type')
+        test_dish_type = DishType.objects.create(name="Test Dish Type")
         response = self.client.get(
-            reverse('kitchen:dish_type_list'),
-            {'name': 'test dish type'}
+            reverse("kitchen:dish_type_list"),
+            {"name": "test dish type"}
         )
         self.assertEqual(response.status_code, 200)
         self.assertIn(test_dish_type, response.context["dish_type_list"])
 
     def test_empty_search_returns_all_dish_types(self):
-        test_dish_type = DishType.objects.create(name='Test Dish Type')
+        test_dish_type = DishType.objects.create(name="Test Dish Type")
         response = self.client.get(
             reverse("kitchen:dish_type_list"),
             {"name": ""}
@@ -45,45 +45,45 @@ class SearchTests(TestCase):
         self.assertIn(test_dish_type, response.context["dish_type_list"])
 
     def test_search_dish_by_name(self):
-        dish_type = DishType.objects.create(name='Test Dish Type')
+        dish_type = DishType.objects.create(name="Test Dish Type")
         test_dish = Dish.objects.create(
-            name='Test Dish',
-            description='Test Description',
+            name="Test Dish",
+            description="Test Description",
             price=10.00,
             dish_type=dish_type,
         )
         response = self.client.get(
-            reverse('kitchen:dish_list'),
-            {'name': 'Test Dish'}
+            reverse("kitchen:dish_list"),
+            {"name": "Test Dish"}
         )
         self.assertEqual(response.status_code, 200)
         self.assertIn(test_dish, response.context["dish_list"])
 
     def test_search_dish_is_case_insensitive(self):
-        dish_type = DishType.objects.create(name='Test Dish Type')
+        dish_type = DishType.objects.create(name="Test Dish Type")
         test_dish = Dish.objects.create(
-            name='Test Dish',
-            description='Test Description',
+            name="Test Dish",
+            description="Test Description",
             price=10.00,
             dish_type=dish_type,
         )
         response = self.client.get(
-            reverse('kitchen:dish_list'),
+            reverse("kitchen:dish_list"),
             {"name": "test dish"}
         )
         self.assertEqual(response.status_code, 200)
         self.assertIn(test_dish, response.context["dish_list"])
 
     def test_empty_dish_search_returns_all_dishes(self):
-        dish_type = DishType.objects.create(name='Test Dish Type')
+        dish_type = DishType.objects.create(name="Test Dish Type")
         test_dish = Dish.objects.create(
-            name='Test Dish',
-            description='Test Description',
+            name="Test Dish",
+            description="Test Description",
             price=10.00,
             dish_type=dish_type,
         )
         response = self.client.get(
-            reverse('kitchen:dish_list'),
+            reverse("kitchen:dish_list"),
             {"name": ""}
         )
         self.assertEqual(response.status_code, 200)
@@ -91,19 +91,19 @@ class SearchTests(TestCase):
 
     def test_search_cook_by_username(self):
         alice = Cook.objects.create_user(
-            username='alice_cook',
-            password='test_password',
+            username="alice_cook",
+            password="test_password",
             years_of_experience=5,
         )
         bob = Cook.objects.create_user(
-            username='bob_cook',
-            password='test_password',
+            username="bob_cook",
+            password="test_password",
             years_of_experience=5,
         )
 
         response = self.client.get(
-            reverse('kitchen:cook_list'),
-            {'username': 'alice_cook'}
+            reverse("kitchen:cook_list"),
+            {"username": "alice_cook"}
         )
 
         self.assertEqual(response.status_code, 200)
@@ -112,19 +112,19 @@ class SearchTests(TestCase):
 
     def test_search_cook_is_case_insensitive(self):
         alice = Cook.objects.create_user(
-            username='alice_cook',
-            password='test_password',
+            username="alice_cook",
+            password="test_password",
             years_of_experience=5,
         )
         bob = Cook.objects.create_user(
-            username='bob_cook',
-            password='test_password',
+            username="bob_cook",
+            password="test_password",
             years_of_experience=5,
         )
 
         response = self.client.get(
-            reverse('kitchen:cook_list'),
-            {'username': 'ALICE'}
+            reverse("kitchen:cook_list"),
+            {"username": "ALICE"}
         )
 
         self.assertEqual(response.status_code, 200)
@@ -133,19 +133,19 @@ class SearchTests(TestCase):
 
     def test_empty_cook_search_return_all_cooks(self):
         alice = Cook.objects.create_user(
-            username='alice_cook',
-            password='test_password',
+            username="alice_cook",
+            password="test_password",
             years_of_experience=5,
         )
         bob = Cook.objects.create_user(
-            username='bob_cook',
-            password='test_password',
+            username="bob_cook",
+            password="test_password",
             years_of_experience=5,
         )
 
         response = self.client.get(
-            reverse('kitchen:cook_list'),
-            {'username': ''}
+            reverse("kitchen:cook_list"),
+            {"username": ""}
         )
 
         self.assertEqual(response.status_code, 200)
