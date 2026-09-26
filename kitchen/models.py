@@ -12,9 +12,6 @@ class DishType(models.Model):
     def __str__(self):
         return self.name
 
-    def get_absolute_url(self):
-        return reverse("kitchen:dish_type_detail", args=[str(self.pk)])
-
 
 class Cook(AbstractUser):
     years_of_experience = models.PositiveIntegerField(
