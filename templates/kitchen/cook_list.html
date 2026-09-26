@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block title %} <title>Cooks List</title> {% endblock %}
+
+{% block content %}
+<h1>Cooks List
+<a class="btn btn-primary link-to-page" style="float:right;" href="{% url 'kitchen:cook_create' %}">+ add</a>
+</h1>
+
+<form method="get" action="" class="form-inline">
+  {{ search_form|crispy }}
+  <input class="btn btn-secondary" type="submit" value="🔍">
+</form>
+<br>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Username</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Years of experience</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cook in cook_list %}
+      <tr>
+        <td>{{ cook.id }}</td>
+        <td>
+          <a href="{% url "kitchen:cook_detail" cook.id %}">{{ cook.username }}</a>
+        </td>
+        <td>{{ cook.first_name }}</td>
+        <td>{{ cook.last_name }}</td>
+        <td>{{ cook.years_of_experience }}</td>
+        <td>
+          <a class="btn btn-primary" href="{% url 'kitchen:cook_update' cook.id %}">Update</a>
+          <a class="btn btn-danger" href="{% url 'kitchen:cook_delete' cook.id %}">Delete</a>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}

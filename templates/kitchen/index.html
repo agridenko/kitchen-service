@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class="h1_index_page">Kitchen Services</h1>
+  <br><br><br>
+  <hr>
+  <div class="wrapp_block_index_page">
+    <div class="wrapp__inner">
+      <div class="wrapp__inner-box">
+        <div class="wrapp__inner-box-title">
+          <h2>DishType</h2>
+        </div>
+        <div class="wrapp__inner-box-text">
+          <p>
+            {{ num_dish_types }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="wrapp__inner">
+      <div class="wrapp__inner-box">
+        <div class="wrapp__inner-box-title">
+          <h2>Dish</h2>
+        </div>
+        <div class="wrapp__inner-box-text">
+          <p>
+            {{ num_dishes }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="wrapp__inner">
+      <div class="wrapp__inner-box">
+        <div class="wrapp__inner-box-title">
+          <h2>Cooks</h2>
+        </div>
+        <div class="wrapp__inner-box-text">
+          <p>
+            {{ num_cooks }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

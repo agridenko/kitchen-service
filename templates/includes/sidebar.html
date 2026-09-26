@@ -1,0 +1,25 @@
+<ul class="sidebar-nav list-group">
+  {% if user.is_authenticated %}
+    <li class="list-group-item">
+      <strong>User:</strong>
+      <a href="{% url 'kitchen:cook_detail' user.id %}">{{ user.get_username }}</a>
+    </li>
+    <li class="list-group-item p-0">
+      <form action="{% url 'logout' %}" method="post" class="m-0">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-link text-decoration-none text-start w-100 h-100 px-3 py-2 text-danger">
+          Logout
+        </button>
+      </form>
+    </li>
+  {% else %}
+    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+  {% endif %}
+
+  <br>
+
+  <li class="list-group-item"><a href="{% url 'kitchen:index' %}">Home</a></li>
+  <li class="list-group-item"><a href="{% url 'kitchen:dish_type_list' %}">DishType</a></li>
+  <li class="list-group-item"><a href="{% url 'kitchen:dish_list' %}">Dish</a></li>
+  <li class="list-group-item"><a href="{% url 'kitchen:cook_list' %}">Cook</a></li>
+</ul>
