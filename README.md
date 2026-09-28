@@ -188,6 +188,10 @@ You can log in using:
 http://127.0.0.1:8000/accounts/login/
 ```
 
+Test user credentials:
+- username: `user`
+- password: `user12345`
+
 Admin panel:
 
 ```text
