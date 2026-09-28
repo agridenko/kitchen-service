@@ -5,6 +5,10 @@
 ![SQLite](https://img.shields.io/badge/SQLite-Database-lightblue?style=for-the-badge&logo=sqlite)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-4-purple?style=for-the-badge&logo=bootstrap)
 
+## 🌐 Live Demo
+
+🔗 **[Open Kitchen Service Demo](https://kitchen-service-pqbl.onrender.com/)**
+
 ---
 
 ## 📌 Project Description
